@@ -1,11 +1,15 @@
 package com.example.logdemo;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
 public class LogThreadController {
+	private static Logger logger = LoggerFactory.getLogger(LogThreadController.class);
 	Thread thread;
 	
 	@RequestMapping("/startlog")
@@ -14,7 +18,7 @@ public class LogThreadController {
 			@Override
 			public void run() {
 				while(true){
-					System.out.println("aabbcc");
+					logger.info("logger info aabbcc ");
 				}
 			}
 		});
